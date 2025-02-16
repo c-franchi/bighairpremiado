@@ -33,8 +33,8 @@ app.post('/send-email', (req, res) => {
       <p><strong>Email:</strong> ${buyerEmail}</p>
       <p><strong>Números Comprados:</strong> ${selectedNumbers.join(", ")}</p>
       <p><strong>Total Pago (BNB):</strong> ${totalBNB}</p>
-      <p><strong>Valor do BNB no ato da compra:</strong> $${priceAtPurchase} USD (Fonte: CoinGecko)</p>
-      <p><strong>Valor atual do BNB:</strong> $${parseFloat(currentBNBValue).toFixed(2)} USD (Fonte: CoinGecko)</p>
+      <p><strong>Valor do BNB no ato da compra:</strong> $${priceAtPurchase} USD (Fonte: Binance)</p>
+      <p><strong>Valor atual do BNB:</strong> $${parseFloat(currentBNBValue).toFixed(2)} USD (Fonte: Binance)</p>
       <p><em>Caso a promoção seja cancelada por não atingir 80% dos números, o valor acima será devolvido.</em></p>
       <p><strong>Hash da Transferência:</strong> ${txHash}</p>
       <p>Data: ${new Date().toLocaleString()}</p>

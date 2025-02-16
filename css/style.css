@@ -5,6 +5,7 @@
   padding: 0;
 }
 
+/* Estilização do corpo */
 body {
   font-family: 'Roboto', sans-serif;
   background: url('../assets/images/background.png') no-repeat center center fixed;
@@ -13,6 +14,7 @@ body {
   color: #333;
 }
 
+/* Container principal */
 .container {
   max-width: 900px;
   margin: 20px auto;
@@ -22,6 +24,7 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Cabeçalho */
 header {
   text-align: center;
   margin-bottom: 20px;
@@ -38,6 +41,7 @@ h1 {
   color: #222;
 }
 
+/* Seções de conteúdo */
 .info, 
 #selectionSection, 
 #paymentSection, 
@@ -45,6 +49,7 @@ h1 {
   margin-bottom: 25px;
 }
 
+/* Títulos */
 h2 {
   margin-bottom: 15px;
   color: #007BFF;
@@ -63,7 +68,7 @@ h2 {
   color: #007BFF;
 }
 
-/* Exibição do percentual vendido */
+/* Exibição da porcentagem de números vendidos */
 #soldPercentage {
   font-size: 1.2em;
   margin-top: 10px;
@@ -71,7 +76,7 @@ h2 {
   color: #333;
 }
 
-/* Botões de bulk selection */
+/* Botões para seleção em lote */
 .bulk-selection {
   display: flex;
   flex-wrap: nowrap;
@@ -98,7 +103,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Botões da grid */
+/* Botões dentro da grid */
 .grid button {
   padding: 4px;
   font-size: 0.8em;
@@ -139,13 +144,13 @@ h2 {
   border-radius: 4px;
 }
 
-/* Resumo da seleção - alinhado à direita */
+/* Resumo da seleção, alinhado à direita */
 #selectionSummary {
   text-align: right;
   margin-top: 10px;
 }
 
-/* Botões gerais */
+/* Estilização dos botões gerais */
 button {
   background: #007BFF;
   color: #fff;
@@ -166,7 +171,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Inputs */
+/* Estilização dos inputs */
 input[type="text"],
 input[type="email"] {
   width: 100%;

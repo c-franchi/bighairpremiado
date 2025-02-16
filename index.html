@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Meta tag responsiva -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Números Premiados GRD Dividendos</title>
+  <!-- Fonte moderna -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <!-- Substitua pela sua logo -->
+      <img src="assets/images/logof.png" alt="Logo GRD Números Premiados" class="logo">
+      <h1>Números Premiados GRD Dividendos</h1>
+      <h3>Gold Reserve</h3>
+    </header>
+    
+    <!-- Seção de consentimento LGPD -->
+    <section id="lgpdSection">
+      <h4>Aceite os termos LGPD</h4>
+      <input type="checkbox" id="lgpdConsent" />
+      <label for="lgpdConsent">Eu concordo com o processamento dos meus dados conforme a política de privacidade.</label>
+    </section>
+    
+    <!-- Seção de regras -->
+    <section id="rulesSection">
+      <h3>Regulamento dos Números Premiados</h3> 
+      <p>
+        O sorteio será realizado automaticamente e a validade dos números é de 30 dias a partir do seu início.
+        Caso não seja vendido pelo menos 80% dos números, a campanha será cancelada e os valores serão devolvidos.
+        Você terá 5 minutos para concluir o pagamento e anexar o comprovante, a fim de evitar variações no valor do BNB.
+      </p>
+      <input type="checkbox" id="rulesConsent" />
+      <label for="rulesConsent">Aceito as regras dos números premiados e o prazo de 5 minutos para pagamento.</label>
+    </section>
+
+    <!-- Informações sobre a promoção -->
+    <section class="info">
+      <h2>Informações sobre o GRD Dividendos</h2>
+      <p>Adquira números premiados para concorrer a uma GRD que distribuirá 5% do faturamento mensalmente da Gold Reserve!</p>
+      <p>Cada GRD Dividendos Gold Reserve custa 0,75 BNB (total da campanha). O preço de cada número é calculado dividindo 1,5 BNB por 500, ou seja, 0,003 BNB por número.</p>
+      <p><strong>Quantidade de números disponíveis:</strong> 500</p>
+      <p>
+        <strong>Preço por número:</strong> <span id="priceBNB"></span>
+      </p>
+      <p id="priceUSDValue"></p>
+      <p id="bnbCurrentValue"></p>
+    </section>
+
+    <!-- Seção de seleção de números -->
+    <section id="selectionSection">
+      <h2>Selecione os números que deseja comprar</h2>
+      <h4>Selecione individualmente ou use os botões abaixo</h4>
+      
+      <!-- Container de seleção em lote -->
+      <div id="bulkSelection" class="bulk-selection">
+        <button id="seqSelectButton">+ 10 Sequencialmente</button>
+        <button id="randSelectButton">+ 10 Aleatoriamente</button>
+        <button id="deselect10Button">- 10 Aleatoriamente</button>
+        <button id="clearSelectionButton">Apagar Toda Seleção</button>
+      </div>
+      
+      <!-- Grid de números -->
+      <div id="numberGrid" class="grid"></div>
+      
+      <!-- Exibição da porcentagem de números vendidos -->
+      <div id="soldPercentage"></div>
+      
+      <!-- Resumo da seleção (alinhado à direita) -->
+      <div id="selectionSummary"></div>
+      
+      <button id="proceedButton" disabled>Prosseguir para pagamento</button>
+    </section>
+
+    <!-- Seção de pagamento (oculta inicialmente) -->
+    <section id="paymentSection" style="display: none;">
+      <h2>Pagamento</h2>
+      <p>Total a pagar: <strong><span id="totalBNB"></span> BNB</strong></p>
+      <p>Envie o pagamento para a seguinte carteira:</p>
+      <div class="wallet">
+        <input type="text" id="walletAddress" value="0xABC123DEF456..." readonly>
+        <button id="copyButton">Copiar Endereço</button>
+      </div>
+      <!-- Botão para voltar à seleção -->
+      <button id="backButton">Voltar à Seleção</button>
+      <!-- Campo para inserir a hash da transferência (oculto inicialmente) -->
+      <div id="txHashSection" style="display: none;">
+        <label for="txHash">Cole a hash da transferência:</label>
+        <input type="text" id="txHash" placeholder="Ex: 0x...">
+      </div>
+      <!-- Campo para inserir o email (oculto inicialmente) -->
+      <div id="emailSection" style="display: none;">
+        <label for="email">Seu email para receber os números comprados:</label>
+        <input type="email" id="email" placeholder="email@exemplo.com">
+      </div>
+      <button id="confirmButton" style="display: none;">Confirmar Compra</button>
+    </section>
+
+    <!-- Seção de confirmação (após compra) -->
+    <section id="confirmationSection" style="display: none;">
+      <h2>Compra Confirmada!</h2>
+      <p>Obrigado! Os números adquiridos são:</p>
+      <p id="purchasedNumbers"></p>
+      <p>Uma confirmação foi enviada para seu email.</p>
+    </section>
+  </div>
+
+  <!-- Inclua os scripts necessários -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

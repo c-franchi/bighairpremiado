@@ -1,0 +1,196 @@
+/* Reset de estilos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('../assets/images/background.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 10px;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2em;
+  color: #222;
+}
+
+.info, 
+#selectionSection, 
+#paymentSection, 
+#confirmationSection {
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #007BFF;
+}
+
+/* Seção de regras */
+#rulesSection {
+  background: #f0f0f0;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#rulesSection h3 {
+  margin-bottom: 10px;
+  color: #007BFF;
+}
+
+/* Exibição do percentual vendido */
+#soldPercentage {
+  font-size: 1.2em;
+  margin-top: 10px;
+  text-align: center;
+  color: #333;
+}
+
+/* Botões de bulk selection */
+.bulk-selection {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .bulk-selection {
+    flex-wrap: wrap;
+  }
+}
+
+/* Grid de números */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  gap: 4px;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Botões da grid */
+.grid button {
+  padding: 4px;
+  font-size: 0.8em;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.grid button:hover {
+  background: #0056b3;
+}
+
+.grid button.selected {
+  background: #28a745;
+}
+
+.grid button.purchased {
+  background: red;
+  cursor: not-allowed;
+}
+
+/* Área da carteira de pagamento */
+.wallet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.wallet input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Resumo da seleção - alinhado à direita */
+#selectionSummary {
+  text-align: right;
+  margin-top: 10px;
+}
+
+/* Botões gerais */
+button {
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  h1 {
+    font-size: 1.6em;
+  }
+  
+  .bulk-selection button {
+    flex: 1 1 100%;
+  }
+  
+  button {
+    font-size: 0.9em;
+    padding: 8px 12px;
+  }
+}

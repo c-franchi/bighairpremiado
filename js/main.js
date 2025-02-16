@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const seqSelectButton = document.getElementById("seqSelectButton");
   const randSelectButton = document.getElementById("randSelectButton");
 
-  // Cálculo fixo: a campanha tem 1,5 BNB e 500 números
-  const fixedPricePerNumber = 1.5 / 500; // 0.003 BNB por número
+  // Valor fixo: campanha de 1,5 BNB / 500 números = 0.003 BNB por número
+  const fixedPricePerNumber = 1.5 / 500; // 0.003 BNB
 
   // Variável para armazenar a cotação atual do BNB (em USD)
   let currentBNBValue = 0;
@@ -34,54 +34,54 @@ document.addEventListener("DOMContentLoaded", function() {
   // Variável para controlar o timer de pagamento (5 minutos)
   let paymentTimerId = null;
   
-  // Configuração da carteira (substitua pelo endereço real)
+  // Endereço da carteira para pagamento
   const walletAddress = "0x5Ab15d869aF92db6e02d81B1449B4b057640177E";
   document.getElementById("walletAddress").value = walletAddress;
 
-  // Função para buscar a cotação atual do BNB via API da Binance
+  // Função para atualizar os elementos de preço na página
+  function atualizarDisplayPreco() {
+    priceBNBElem.innerText = fixedPricePerNumber.toFixed(6) + " BNB";
+    const pricePerNumberUSD = fixedPricePerNumber * currentBNBValue;
+    const priceUSDValueElem = document.getElementById("priceUSDValue");
+    if(priceUSDValueElem) {
+      priceUSDValueElem.innerText = "Valor por número em USD: $" + pricePerNumberUSD.toFixed(2) + " USD";
+    }
+    const bnbCurrentValueElem = document.getElementById("bnbCurrentValue");
+    if(bnbCurrentValueElem) {
+      bnbCurrentValueElem.innerText = `Valor atual do BNB: $${currentBNBValue.toFixed(2)} USD (Fonte: Binance)`;
+    }
+    updateSelectedCount();
+  }
+
+  // Função para buscar a cotação atual do BNB usando a API da Binance e logar o resultado
   function updateBNBPrice() {
+    console.log("Atualizando cotação do BNB...");
     fetch('https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT')
-      .then(response => response.json())
+      .then(response => {
+         console.log("Resposta da API da Binance:", response);
+         return response.json();
+      })
       .then(data => {
+         console.log("Dados recebidos da Binance:", data);
          if (data && data.price) {
            currentBNBValue = parseFloat(data.price);
+           console.log("Cotação atual do BNB:", currentBNBValue);
          } else {
-           console.error("Dados inesperados:", data);
+           console.error("Dados inesperados da Binance:", data);
            currentBNBValue = 300; // fallback
          }
-         // Atualiza o display do preço por número e seu equivalente em USD
-         priceBNBElem.innerText = fixedPricePerNumber.toFixed(6) + " BNB";
-         const pricePerNumberUSD = fixedPricePerNumber * currentBNBValue;
-         const priceUSDValueElem = document.getElementById("priceUSDValue");
-         if(priceUSDValueElem) {
-           priceUSDValueElem.innerText = "Valor por número em USD: $" + pricePerNumberUSD.toFixed(2) + " USD";
-         }
-         const bnbCurrentValueElem = document.getElementById("bnbCurrentValue");
-         if(bnbCurrentValueElem) {
-           bnbCurrentValueElem.innerText = `Valor atual do BNB: $${currentBNBValue.toFixed(2)} USD (Fonte: Binance)`;
-         }
-         updateSelectedCount();
+         atualizarDisplayPreco();
          checkAndRetryBNBPrice();
       })
       .catch(error => {
-         console.error('Erro ao buscar o preço do BNB:', error);
+         console.error('Erro ao buscar o preço do BNB na Binance:', error);
          currentBNBValue = 300;
-         priceBNBElem.innerText = fixedPricePerNumber.toFixed(6) + " BNB";
-         const pricePerNumberUSD = fixedPricePerNumber * currentBNBValue;
-         const priceUSDValueElem = document.getElementById("priceUSDValue");
-         if(priceUSDValueElem) {
-           priceUSDValueElem.innerText = "Valor por número em USD: $" + pricePerNumberUSD.toFixed(2) + " USD";
-         }
-         const bnbCurrentValueElem = document.getElementById("bnbCurrentValue");
-         if(bnbCurrentValueElem) {
-           bnbCurrentValueElem.innerText = `Valor atual do BNB: $${currentBNBValue.toFixed(2)} USD (Fonte: Binance)`;
-         }
-         updateSelectedCount();
+         atualizarDisplayPreco();
          checkAndRetryBNBPrice();
       });
   }
 
-  // Se o valor atual parecer ser o fallback (300), tenta novamente após 5 segundos
+  // Se o valor retornado for o fallback, tenta novamente após 5 segundos
   function checkAndRetryBNBPrice() {
     if (currentBNBValue === 300) {
       console.warn("Preço fallback detectado (300). Tentando atualizar novamente em 5 segundos...");
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let selectedNumbers = [];
   let purchasedNumbers = [];
 
-  // Atualiza o contador e o resumo da seleção (alinhado à direita)
+  // Atualiza o contador e o resumo da seleção
   function updateSelectedCount() {
     const count = selectedNumbers.length;
     selectedCountElem.innerText = count;

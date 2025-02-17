@@ -389,7 +389,13 @@
 
 
   document.addEventListener("DOMContentLoaded", function() {
-    const baseUrl = "http://localhost:3000";
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(emailData)
+    })
   
     const totalNumbers = 500;
     const numberGrid = document.getElementById("numberGrid");

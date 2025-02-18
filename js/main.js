@@ -1009,7 +1009,7 @@
       walletInput.select();
       walletInput.setSelectionRange(0, 99999);
       document.execCommand("copy");
-      Swal.fire('Sucesso', 'Endereço copiado para a área de transferência!, finalize o pagamento em até 5 minutos.', 'success');
+      Swal.fire('Sucesso', 'Endereço copiado para a área de transferência! Finalize o pagamento em até 5 minutos.', 'success');
       txHashSection.style.display = "block";
       emailSection.style.display = "block";
       confirmButton.style.display = "block";

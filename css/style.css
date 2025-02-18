@@ -52,7 +52,7 @@ h1 {
 /* Títulos */
 h2 {
   margin-bottom: 15px;
-  color: #007BFF;
+  color: #c59804;
 }
 
 /* Seção de regras */
@@ -65,7 +65,7 @@ h2 {
 }
 #rulesSection h3 {
   margin-bottom: 10px;
-  color: #007BFF;
+  color: #c59804;
 }
 
 /* Exibição da porcentagem de números vendidos */
@@ -107,7 +107,7 @@ h2 {
 .grid button {
   padding: 4px;
   font-size: 0.8em;
-  background: #007BFF;
+  background: #c59804;
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -116,7 +116,7 @@ h2 {
 }
 
 .grid button:hover {
-  background: #0056b3;
+  background: #c59804;
 }
 
 .grid button.selected {
@@ -152,8 +152,7 @@ h2 {
 
 /* Estilização dos botões gerais */
 button {
-  background: #007BFF;
-  color: #fff;
+  background: #c59804;
   border: none;
   padding: 10px 15px;
   font-size: 1em;
@@ -163,7 +162,7 @@ button {
 }
 
 button:hover {
-  background: #0056b3;
+  background: #c59804;
 }
 
 button:disabled {

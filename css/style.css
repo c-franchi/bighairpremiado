@@ -8,7 +8,7 @@
 /* Estilização do corpo */
 body {
   font-family: 'Roboto', sans-serif;
-  background: url('../assets/images/fundo.png') no-repeat center center fixed;
+  background: url('../assets/images/BGAfundo.png') no-repeat center center fixed;
   background-size: cover;
   padding: 10px;
   color: #333;
@@ -52,7 +52,7 @@ h1 {
 /* Títulos */
 h2 {
   margin-bottom: 15px;
-  color: #c59804;
+  color: #f717c6;
 }
 
 /* Seção de regras */
@@ -65,7 +65,7 @@ h2 {
 }
 #rulesSection h3 {
   margin-bottom: 10px;
-  color: #c59804;
+  color: #f717c6;
 }
 
 /* Exibição da porcentagem de números vendidos */
@@ -107,7 +107,7 @@ h2 {
 .grid button {
   padding: 4px;
   font-size: 0.8em;
-  background: #c59804;
+  background: #f717c6;
   color: #fff;
   border: none;
   border-radius: 3px;
@@ -116,7 +116,7 @@ h2 {
 }
 
 .grid button:hover {
-  background: #c59804;
+  background: #f717c6;
 }
 
 .grid button.selected {
@@ -152,7 +152,8 @@ h2 {
 
 /* Estilização dos botões gerais */
 button {
-  background: #c59804;
+  background: #f717c6;
+  color: #ffffff;
   border: none;
   padding: 10px 15px;
   font-size: 1em;
@@ -162,7 +163,7 @@ button {
 }
 
 button:hover {
-  background: #c59804;
+  background: #10d40a;
 }
 
 button:disabled {

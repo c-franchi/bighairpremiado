@@ -4,7 +4,7 @@ Este projeto é uma aplicação simples para uma Números Premiados  de GRD Divi
 
 ## Estrutura de Diretórios
 
-rifa-nft/ ├── index.html ├── css/ │ └── style.css ├── js/ │ └── main.js ├── assets/ │ └── images/ │ └── logo.png └── README.md
+├── index.html ├── css/ │ └── style.css ├── js/ │ └── main.js ├── assets/ │ └── images/ │ └── logo.png └── README.md
 
 
 
